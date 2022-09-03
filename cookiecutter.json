@@ -1,0 +1,16 @@
+{
+  "project_name": "projectname",
+  "repo_name": "bi-android-{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+  "local_database_name": "{{ cookiecutter.project_name|lower|replace(' ', '')|replace('-', '') }}",
+  "min_sdk": 16,
+  "target_sdk": 28,
+  "package_name": "bi.android.{{ cookiecutter.project_name|lower|replace(' ', '')|replace('-', '') }}",
+  "description": "A short description of the project.",
+  "author": "Mobile Developer BI",
+  "email": "mobiledev@bi.go.id",
+  "version": "1.0.0",
+  "splash_screen": "n",
+  "login_page": "n",
+  "with_menu": "n",
+  "with_list": "n"
+}

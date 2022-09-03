@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">{{ cookiecutter.project_name }}</string>
+    <string name="label_main">Rekomendasi Beranda</string>
+    <string name="position" translatable="false">position</string>
+    <string name="detail_character_species_w_colon">Species:</string>
+    <string name="detail_character_status_w_colon">Status:</string>
+    <string name="detail_character_gender_w_colon">Gender:</string>
+    <string name="retry">Retry</string>
+    {% if cookiecutter.with_menu == "y" %}
+    <string name="menu_bottom_beranda">Beranda</string>
+    <string name="menu_bottom_explore">Explore</string>
+    <string name="menu_bottom_profil">Profil</string>
+    {% endif %}
+    {% if cookiecutter.login_page == "y" %}
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    {% endif %}
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_margin_horizontal">16dp</dimen>
+    <dimen name="activity_margin_vertical">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="detail_character_image_view_size">200dp</dimen>
+    <dimen name="detail_character_margin_top">10dp</dimen>
+    <dimen name="detail_character_margin_horizontal">60dp</dimen>
+    <dimen name="detail_character_species_text_margin_top">10dp</dimen>
+    <dimen name="item_character_padding">20dp</dimen>
+    <dimen name="item_character_image_size">60dp</dimen>
+    <dimen name="item_character_title_margin_start">16dp</dimen>
+    <dimen name="item_character_subtitle_margin_top">5dp</dimen>
+    <dimen name="item_network_state_margin_top">8dp</dimen>
+    <dimen name="custom_splash_logo_width">355dp</dimen>
+    <dimen name="custom_splash_logo_height">100dp</dimen>
+    <dimen name="login_tv_copyright_margin_bottom">16dp</dimen>
+    <dimen name="login_image_height">100dp</dimen>
+    <dimen name="login_layout_margin_horizontal">32dp</dimen>
+    <dimen name="login_mcv_card_corner_radius">10dp</dimen>
+    <dimen name="login_mcv_card_elevation">20dp</dimen>
+    <dimen name="login_card_layout_margin_horizontal">20dp</dimen>
+    <dimen name="login_card_layout_margin_bottom">20dp</dimen>
+    <dimen name="login_card_layout_margin_top">12dp</dimen>
+    <dimen name="login_et_password_margin_top">4dp</dimen>
+    <dimen name="login_button_card_corner_radius">5dp</dimen>
+    <dimen name="login_button_card_elevation">10dp</dimen>
+    <dimen name="login_button_margin_top">20dp</dimen>
+    <dimen name="login_img_logo_margin_bottom">32dp</dimen>
+    <dimen name="login_button_text_padding">12dp</dimen>
+</resources>

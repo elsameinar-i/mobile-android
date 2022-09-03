@@ -1,0 +1,112 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.6.10'
+    repositories {
+        google()
+        mavenCentral()
+        google()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'org.jlleitschuh.gradle:ktlint-gradle:10.2.1'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint" // Version should be inherited from parent
+
+    // Optionally configure plugin
+    ktlint {
+        debug = true
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-v4:27.1.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+ext{
+
+    buildToolsVersion = '31.0.0'
+    compileSdkVersion = 31
+    targetSdkVersion = {{ cookiecutter.target_sdk }}
+    minSdkVersion = {{ cookiecutter.min_sdk }}
+
+    appCompatVersion = '1.3.1'
+    materialDesignVersion = '1.4.0'
+    supportLibVersion = '1.+'
+    rxJavaVersion = '2.2.21'
+    rxKotlinVersion = '2.4.0'
+    timberVersion = '5.0.1'
+    daggerVersion = '2.40.5'
+    retrofitVersion = '2.9.0'
+    okHttpVersion = '5.0.0-alpha.3'
+    picassoVersion = '2.71828'
+    gsonVersion = '2.8.9'
+    lifecycle_version = "2.1.+"
+    room_version = "2.3.0"
+    paging_version = '3.1.+'
+    constraintlayout_version = "2.1.+"
+    coroutines_version = '1.4.2'
+    multidex_version = "2.0.1"
+
+    //androidx material design
+    appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
+    materialDesign = "com.google.android.material:material:$materialDesignVersion"
+    
+    //supportLib
+    supportLib = "com.android.support:support-v4:$supportLibVersion"
+    supportLibAppCompat = "com.android.support:appcompat-v7:$supportLibVersion"
+    supportLibDesign = "com.android.support:design:$supportLibVersion"
+    supportLibRecyclerview = "com.android.support:recyclerview-v7:$supportLibVersion"
+    supportLibCardview = "com.android.support:cardview-v7:$supportLibVersion"
+
+    //rx
+    rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    rxAndroid = "io.reactivex.rxjava2:rxandroid:2.0.1"
+    rxKotlin = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+
+    //timber
+    timber = "com.jakewharton.timber:timber:$timberVersion"
+
+    //dagger
+    dagger = "com.google.dagger:dagger-android:$daggerVersion"
+    daggerSupport = "com.google.dagger:dagger-android-support:$daggerVersion" // if you use the support libraries
+    daggerAnnotation = "com.google.dagger:dagger-android-processor:$daggerVersion" //for annotationProcessor
+    daggerApt = "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    //net
+    retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    gson = "com.google.code.gson:gson:$gsonVersion"
+    rxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    //picasso
+    picasso = "com.squareup.picasso:picasso:$picassoVersion"
+
+
+    buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("Asia/Jakarta"))
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

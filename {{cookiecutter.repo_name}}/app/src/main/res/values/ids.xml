@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="nav_host_fragment_main"/>
+    <item type="id" name="toolbar"/>
+    <item type="id" name="rv_characters"/>
+    <item type="id" name="progress_bar"/>
+    <item type="id" name="cl_character"/>
+    <item type="id" name="tv_image"/>
+    <item type="id" name="tv_name"/>
+    <item type="id" name="tv_species_text"/>
+    <item type="id" name="tv_species"/>
+    <item type="id" name="tv_status_text"/>
+    <item type="id" name="tv_status"/>
+    <item type="id" name="tv_gender_text"/>
+    <item type="id" name="tv_gender"/>
+    <item type="id" name="iv_image"/>
+    <item type="id" name="tv_species_and_status"/>
+    <item type="id" name="tv_error_msg"/>
+    <item type="id" name="button_retry"/>
+    <item type="id" name="tv_copyright"/>
+    <item type="id" name="img_logo_bank_indonesia"/>
+    <item type="id" name="mcv_login_layout"/>
+    <item type="id" name="button_login"/>
+</resources>

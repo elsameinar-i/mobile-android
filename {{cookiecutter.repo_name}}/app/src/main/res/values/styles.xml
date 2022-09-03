@@ -1,0 +1,52 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.Starterkit" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/biru</item>
+        <item name="colorPrimaryVariant">@color/biru</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="lollipop">?attr/colorPrimaryVariant</item>
+    </style>
+    {% if cookiecutter.splash_screen == "y" %}
+    <!-- Your own style for eash page. -->
+    <style name="Theme.Starterkit.Splash">
+        <item name="android:windowBackground">@drawable/custom_splash_logo</item>
+    </style>
+    {% endif %}
+    <style name="Theme.Starterkit.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Bottom Navigation Menu Style -->
+    <style name="Theme.Starterkit.StyleText">
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+    {% if cookiecutter.with_menu == "y" %}
+    <style name="Theme.Starterkit.BottomNavigation">
+        <item name="android:background">@color/light_grey</item>
+        <item name="itemIconTint">@color/bottom_nav_color_click</item>
+        <item name="itemTextColor">@color/bottom_nav_color_click</item>
+        <item name="itemTextAppearanceActive">@style/Theme.Starterkit.StyleText</item>
+        <item name="itemTextAppearanceInactive">@style/Theme.Starterkit.StyleText</item>
+    </style>
+    {% endif %}
+    {% if cookiecutter.login_page == "y" %}
+    <style name="Text.Reguler.16sp.DarkGrey" parent="Theme.Starterkit">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="Text.Medium.14sp.White.AllCaps" parent="Theme.Starterkit">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    {% endif %}
+</resources>

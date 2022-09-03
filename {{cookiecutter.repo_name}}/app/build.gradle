@@ -1,0 +1,138 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+def STRING = 'String'
+def BUILD_TIME = 'BUILD_TIME'
+def API_URL = 'API_URL'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion "31.0.0"
+
+    defaultConfig {
+        applicationId "{{ cookiecutter.package_name }}"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "{{ cookiecutter.version }}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField STRING, BUILD_TIME, "\"${rootProject.ext.buildTime}\""
+        buildConfigField STRING, API_URL, "\"https://rickandmortyapi.com/api/\""
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            // Disini nanti bisa diset utk semua konfigurasi untuk environtment Production
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField STRING, API_URL, "\"https://rickandmortyapi.com/api/\""
+        }
+        uat {
+            // Disini nanti bisa diset utk semua konfigurasi untuk environtment UAT
+            buildConfigField STRING, API_URL, "\"https://rickandmortyapi.com/api/\""
+        }
+        debug {
+            // Disini nanti bisa diset utk semua konfigurasi untuk environtment Unit Test dan SIT
+            buildConfigField STRING, API_URL, "\"https://rickandmortyapi.com/api/\""
+        }
+    }
+    sourceSets{
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //androidx material design
+    implementation rootProject.ext.appCompat
+    implementation rootProject.ext.materialDesign
+    
+    //supportLib
+    implementation rootProject.ext.supportLib
+    implementation rootProject.ext.supportLibAppCompat
+    implementation rootProject.ext.supportLibDesign
+    implementation rootProject.ext.supportLibRecyclerview
+    implementation rootProject.ext.supportLibCardview
+
+    //timber
+    implementation rootProject.ext.timber
+
+    //di
+    implementation rootProject.ext.dagger
+    implementation 'androidx.preference:preference-ktx:1.2.0-rc01'
+    kapt rootProject.ext.daggerApt
+    //implementation rootProject.ext.daggerSupport
+    //annotationProcessor rootProject.ext.daggerAnnotation
+
+    //rx
+    implementation rootProject.ext.rxJava
+    implementation rootProject.ext.rxAndroid
+    implementation rootProject.ext.rxKotlin
+
+    //net
+    implementation rootProject.ext.retrofit
+    implementation rootProject.ext.okHttp
+    implementation rootProject.ext.gson
+    implementation rootProject.ext.rxJavaAdapter
+    implementation rootProject.ext.gsonConverter
+    implementation rootProject.ext.loggingInterceptor
+
+    //picasso
+    implementation rootProject.ext.picasso
+
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+
+    // Room and Architectural Components
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    //Paging
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    // constraint layout
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+
+    // navigation fragment
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    // data binding
+    kapt "com.android.databinding:compiler:3.1.4"
+
+    // multidex
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+    //test
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+    testImplementation "androidx.paging:paging-common-ktx:$paging_version"
+
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
+    })
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}
