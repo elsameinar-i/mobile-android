@@ -83,6 +83,7 @@ if '{{ cookiecutter.with_list }}' == 'n':
     os.remove(root_src_dir + "/data/remote/CharacterService.kt")
     os.remove(root_src_dir + "/data/repository/CharacterRepository.kt")
     os.remove(root_src_dir + "/data/local/entities/Character.kt")
+    os.remove(root_src_dir + "/data/local/entities/AppDatabase.kt")
 else:
     shutil.rmtree('ui/home')
     os.remove(root_layout_dir + "/fragment_home.xml")
